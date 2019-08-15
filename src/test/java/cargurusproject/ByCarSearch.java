@@ -8,7 +8,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
@@ -38,7 +37,7 @@ public class ByCarSearch {
 	}
 	@Test(dataProvider = "getTestData")
 	
-	public void loginSearchTest (String make, String model, String yearStart, String yearEnd, String zipcode, String radius){
+	public void byCarSearchTest (String make, String model, String yearStart, String yearEnd, String zipcode, String radius){
 		
 		 driver.get("https://www.cargurus.com/");
 		    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='España'])[1]/following::span[2]")).click();
