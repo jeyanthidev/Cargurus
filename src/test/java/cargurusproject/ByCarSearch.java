@@ -20,9 +20,8 @@ public class ByCarSearch {
 
 	@BeforeClass(alwaysRun = true)
 	public void setUp() {
-		System.setProperty("webdriver.chrome.driver", "C:\\data\\chromedriver.exe");
+		System.setProperty(CarGuruConstant.WEBDRIVER, CarGuruConstant.WEBDRIVER_PATH);
 		driver = new ChromeDriver();
-		// baseUrl = "https://www.katalon.com/";
 		driver.manage().window().maximize();
 		driver.manage().deleteAllCookies();
 		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
@@ -35,8 +34,7 @@ public class ByCarSearch {
 		return dataList.iterator();
 		
 	}
-	@Test(dataProvider = "getTestData")
-	
+	@Test(dataProvider = "getTestData",priority=1,groups="ByUsedCar")
 	public void byCarSearchTest (String make, String model, String yearStart, String yearEnd, String zipcode, String radius){
 		
 		 driver.get("https://www.cargurus.com/");

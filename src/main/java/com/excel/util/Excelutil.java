@@ -35,7 +35,9 @@ public class Excelutil {
 	public static ArrayList<Object[]> getDataFromExcel(String sheetName, String[] columnNames) {
 		ArrayList<Object[]> dataObjects = new ArrayList<Object[]>();
 		try {
+			
 			excelReader = new ExcelReader("C:\\Users\\Jeyanthi\\eclipse-workspace\\CarGurus\\src\\test\\resource\\Cargurus testdata.xlsx");
+			System.out.println(excelReader.getRowCount(sheetName));
 			for (int rowNum = 2; rowNum <= excelReader.getRowCount(sheetName); rowNum++) {
 				List<String> dataList = new ArrayList<String>();
 				for (int i = 0; i < columnNames.length; i++) {
@@ -55,8 +57,8 @@ public class Excelutil {
 	public static void main(String[] args) {
 		getDataFromExcel("search",new String[] {"Make","Model","YearStart","YearEnd","Zipcode","Radius"});
 	
-		getDataFromExcel("style",new String[] {"Body Style","Zipcode","Radius","YearStart","YearEnd","Price Mini","Price Max","Maximum milelage","Transmission"});
-		getDataFromExcel("Price",new String[] {"Zipcode","Radius","YearStart","YearEnd","Price Mini","Price Max","Maximum milelage","Transmission"});
+		getDataFromExcel("style",new String[] {"Body Style","Zipcode","Radius","YearStart","YearEnd","Price Mini","Price Max","Max Milelage","Transmission"});
+		getDataFromExcel("Price",new String[] {"Zipcode","Radius","YearStart","YearEnd","Price Mini","Price Max","Max Milelage","Transmission"});
 	}
 	
 }

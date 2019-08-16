@@ -6,7 +6,6 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
@@ -16,7 +15,7 @@ public class Bycar {
 
 	@BeforeClass(alwaysRun = true)
 	public void setUp() {
-		System.setProperty("webdriver.chrome.driver", "C:\\data\\chromedriver.exe");
+		System.setProperty(CarGuruConstant.WEBDRIVER, CarGuruConstant.WEBDRIVER_PATH);
 		driver = new ChromeDriver();
 		// baseUrl = "https://www.katalon.com/";
 		driver.manage().window().maximize();
