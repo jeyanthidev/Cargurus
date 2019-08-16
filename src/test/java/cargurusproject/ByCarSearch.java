@@ -36,7 +36,7 @@ public class ByCarSearch {
 	}
 	@Test(dataProvider = "getTestData",priority=1,groups="ByUsedCar")
 	public void byCarSearchTest (String make, String model, String yearStart, String yearEnd, String zipcode, String radius){
-		
+		System.out.println("inside byCarSearchTest ");
 		 driver.get("https://www.cargurus.com/");
 		    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='España'])[1]/following::span[2]")).click();
 		    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='New Search'])[1]/following::label[1]")).click();

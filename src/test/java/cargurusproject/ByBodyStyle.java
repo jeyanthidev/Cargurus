@@ -39,6 +39,7 @@ public class ByBodyStyle{
 
 	@Test(dataProvider = "getTestData",priority=3,groups="ByUsedCar")
 	public void testBystlye(String bodyStyle, String zipcode, String radius, String yearStart, String yearEnd, String priceMini,String priceMax,String maxMilelage,String transmission ){
+		System.out.println("inside testBystlye ");
 	driver.get("https://www.cargurus.com/");
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='España'])[1]/following::span[2]")).click();
     driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='New Search'])[1]/following::label[2]")).click();
