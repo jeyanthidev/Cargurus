@@ -2,31 +2,15 @@ package cargurusproject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.excel.util.Excelutil;
 
-public class ByCarSearch {
-	WebDriver driver;
-
-	@BeforeClass(alwaysRun = true)
-	public void setUp() {
-		System.setProperty(CarGuruConstant.WEBDRIVER, CarGuruConstant.WEBDRIVER_PATH);
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	}
+public class ByCarSearch extends BaseTest {
 
 	@DataProvider
 	public Iterator<Object[]> getTestData() {
@@ -34,7 +18,7 @@ public class ByCarSearch {
 		return dataList.iterator();
 		
 	}
-	@Test(dataProvider = "getTestData",priority=1,groups="ByUsedCar")
+	@Test(dataProvider = "getTestData",priority=1,groups="ByCarSearch")
 	public void byCarSearchTest (String make, String model, String yearStart, String yearEnd, String zipcode, String radius){
 		System.out.println("inside byCarSearchTest ");
 		 driver.get("https://www.cargurus.com/");
@@ -59,12 +43,6 @@ public class ByCarSearch {
 		    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='Radius'])[1]/following::input[1]")).click();
 		    // Assert.assertEquals( driver.findElement(By.id("displayedListingsCount")).getText().contains("out of"), true);
 		    
-	}
-
-	@AfterClass
-	public void tearDown() throws Exception {
-		driver.quit();
-
 	}
 
 }
