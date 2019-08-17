@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 public class Bycar extends BaseTest {
 	
 	@Test(priority=4,groups="ByCar")
-	public void testLogin() throws Exception {
+	public void testByCar() throws Exception {
 			driver.get("https://www.cargurus.com/");
 		    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='España'])[1]/following::span[2]")).click();
 		    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='New Search'])[1]/following::label[1]")).click();
