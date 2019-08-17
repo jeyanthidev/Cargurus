@@ -2,32 +2,15 @@ package cargurusproject;
 
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.Select;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.excel.util.Excelutil;
 
-public class ByPrice implements CarGuruConstant {
-
-	WebDriver driver;
-
-	@BeforeClass(alwaysRun = true)
-	public void setUp() {
-		System.setProperty(CarGuruConstant.WEBDRIVER, CarGuruConstant.WEBDRIVER_PATH);
-		driver = new ChromeDriver();
-		driver.manage().window().maximize();
-		driver.manage().deleteAllCookies();
-		driver.manage().timeouts().pageLoadTimeout(40, TimeUnit.SECONDS);
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-	}
+public class ByPrice extends BaseTest {
 
 	@DataProvider
 	public Iterator<Object[]> getTestData() {
@@ -36,7 +19,7 @@ public class ByPrice implements CarGuruConstant {
 		return dataList.iterator();
 	}
 
-	@Test(dataProvider = "getTestData", priority = 2, groups = "ByUsedCar")
+	@Test(dataProvider = "getTestData", priority = 2, groups = "ByPrice")
 	public void testByPrice(String zipcode, String radius, String yearStart, String yearEnd, String priceMini,
 			String priceMax, String maxMilelage, String transmission) {
 		System.out.println("inside testByPrice ");
@@ -105,9 +88,5 @@ public class ByPrice implements CarGuruConstant {
 				.click();
 	}
 
-	@AfterClass(alwaysRun = true)
-	public void tearDown() throws Exception {
-		driver.quit();
-
-	}
+	
 }
