@@ -22,8 +22,8 @@ public class Bycar extends BaseTest {
 		    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='to'])[1]/preceding::select[1]")).click();
 		    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='to'])[1]/following::select[1]")).click();
 		    driver.findElement(By.xpath("(.//*[normalize-space(text()) and normalize-space(.)='to'])[1]/following::select[1]")).click();
-		    driver.findElement(By.id("newSearchHeaderForm_UsedCar_zip1")).click();
-		    driver.findElement(By.id("newSearchHeaderForm_UsedCar_zip1")).sendKeys("60195");
+		    driver.findElement(By.id("newSearchHeaderForm_UsedCar_zip")).click();
+		    driver.findElement(By.id("newSearchHeaderForm_UsedCar_zip")).sendKeys("60195");
 		    driver.findElement(By.id("newSearchHeaderForm_UsedCar_distance")).click();
 		    new Select(driver.findElement(By.id("newSearchHeaderForm_UsedCar_distance"))).selectByVisibleText("25 mi");
 		    driver.findElement(By.id("newSearchHeaderForm_UsedCar_distance")).click();
